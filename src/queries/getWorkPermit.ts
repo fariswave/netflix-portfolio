@@ -1,19 +1,12 @@
-// queries/getWorkPermit.ts
-import datoCMSClient from './datoCMSClient';
 import { WorkPermit } from '../types';
 
-const GET_WORK_PERMIT = `
-  query {
-    workPermit {
-      visaStatus
-      expiryDate
-      summary
-      additionalInfo
-    }
-  }
-`;
+const WORK_PERMIT_DATA: WorkPermit = {
+  visaStatus: 'H-1B Visa',
+  expiryDate: new Date('2026-10-01'),
+  summary: 'Currently authorized to work in the United States under H-1B visa sponsorship',
+  additionalInfo: 'Valid work permit allowing employment with current employer until October 2026. Can be extended upon request.'
+};
 
 export async function getWorkPermit(): Promise<WorkPermit> {
-  const data = await datoCMSClient.request<{ workPermit: WorkPermit }>(GET_WORK_PERMIT);
-  return data.workPermit;
+  return WORK_PERMIT_DATA;
 }

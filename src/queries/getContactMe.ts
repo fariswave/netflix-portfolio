@@ -1,25 +1,16 @@
-// queries/getContactMe.ts
-import datoCMSClient from './datoCMSClient';
 import { ContactMe } from '../types';
 
-const GET_CONTACT_ME = `
-  query {
-    contactMe {
-      profilePicture {
-        url
-      }
-      name
-      title
-      summary
-      companyUniversity
-      linkedinLink
-      email
-      phoneNumber
-    }
-  }
-`;
+const CONTACT_DATA: ContactMe = {
+  profilePicture: { url: '/images/avataar.png' },
+  name: 'John Doe',
+  title: 'Full Stack Developer',
+  summary: 'Passionate about building amazing web experiences with modern technologies',
+  companyUniversity: 'Tech Company ABC',
+  linkedinLink: 'https://linkedin.com/in/johndoe',
+  email: 'john@example.com',
+  phoneNumber: '+1 (555) 123-4567'
+};
 
 export async function getContactMe(): Promise<ContactMe> {
-  const data = await datoCMSClient.request<{ contactMe: ContactMe }>(GET_CONTACT_ME);
-  return data.contactMe;
+  return CONTACT_DATA;
 }
