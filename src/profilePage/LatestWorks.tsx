@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // Hook untuk navigasi antar halaman
-import "./TopPicksRow.css";
+import "./LatestWorks.css";
 // Import ikon-ikon dari react-icons untuk visual tambahan
 import {
   FaPassport,
@@ -15,179 +15,115 @@ import {
 } from "react-icons/fa";
 
 // Definisi tipe profil yang valid
-type ProfileType = "recruiter" | "developer" | "stalker" | "adventure";
+type ProfileType = "creative" | "brandmarketing";
 
 // Interface untuk props komponen
-interface TopPicksRowProps {
+interface LatestWorksProps {
   profile: ProfileType;
 }
 
 // Konfigurasi top picks untuk setiap jenis profil
-const topPicksConfig = {
+const latestWorksConfig = {
   // Konfigurasi untuk profil recruiter dengan berbagai pilihan kartu
-  recruiter: [
+  creative: [
     {
-      title: "Work Permit",
+      title: "Project 1",
       imgSrc: "https://picsum.photos/seed/workpermit/250/200",
       icon: <FaPassport />,
       route: "/work-permit",
     },
     {
-      title: "Skills",
+      title: "Project 2",
       imgSrc: "https://picsum.photos/seed/skills/250/200",
       icon: <FaCode />,
       route: "/skills",
     },
     {
-      title: "Experience",
+      title: "Project 3",
       imgSrc: "https://picsum.photos/seed/workexperience/250/200",
       icon: <FaBriefcase />,
       route: "/work-experience",
     },
     {
-      title: "Certifications",
+      title: "Project 4",
       imgSrc: "https://picsum.photos/seed/certifications/250/200",
       icon: <FaCertificate />,
       route: "/certifications",
     },
     {
-      title: "Recommendations",
+      title: "Project 5",
       imgSrc: "https://picsum.photos/seed/recommendations/250/200",
       icon: <FaHandsHelping />,
       route: "/recommendations",
     },
     {
-      title: "Projects",
+      title: "Project 6",
       imgSrc: "https://picsum.photos/seed/projects/250/200",
       icon: <FaProjectDiagram />,
       route: "/projects",
     },
     {
-      title: "Contact Me",
+      title: "Project 7",
       imgSrc: "https://picsum.photos/seed/contact/250/200",
       icon: <FaEnvelope />,
       route: "/contact-me",
     },
   ],
-  developer: [
+  brandmarketing: [
     {
-      title: "Skills",
+      title: "Project 1",
       imgSrc: "https://picsum.photos/seed/coding/250/200",
       route: "/skills",
       icon: <FaCode />,
     },
     {
-      title: "Projects",
+      title: "Project 2",
       imgSrc: "https://picsum.photos/seed/development/250/200",
       route: "/projects",
       icon: <FaProjectDiagram />,
     },
     {
-      title: "Certifications",
+      title: "Project 3",
       imgSrc: "https://picsum.photos/seed/badge/250/200",
       route: "/certifications",
       icon: <FaCertificate />,
     },
     {
-      title: "Experience",
+      title: "Project 4",
       imgSrc: "https://picsum.photos/seed/work/250/200",
       route: "/work-experience",
       icon: <FaBriefcase />,
     },
     {
-      title: "Recommendations",
+      title: "Project 5",
       imgSrc: "https://picsum.photos/seed/networking/250/200",
       route: "/recommendations",
       icon: <FaHandsHelping />,
     },
     {
-      title: "Contact Me",
+      title: "Project 6",
       imgSrc: "https://picsum.photos/seed/connect/250/200",
       route: "/contact-me",
       icon: <FaEnvelope />,
-    },
-  ],
-  stalker: [
-    {
-      title: "Recommendations",
-      imgSrc: "https://picsum.photos/seed/networking/250/200",
-      route: "/recommendations",
-      icon: <FaHandsHelping />,
-    },
-    {
-      title: "Contact Me",
-      imgSrc: "https://picsum.photos/seed/call/250/200",
-      route: "/contact-me",
-      icon: <FaEnvelope />,
-    },
-    {
-      title: "Projects",
-      imgSrc: "https://picsum.photos/seed/planning/250/200",
-      route: "/projects",
-      icon: <FaProjectDiagram />,
-    },
-    {
-      title: "Experience",
-      imgSrc: "https://picsum.photos/seed/resume/250/200",
-      route: "/work-experience",
-      icon: <FaBriefcase />,
-    },
-    {
-      title: "Certifications",
-      imgSrc: "https://picsum.photos/seed/achievements/250/200",
-      route: "/certifications",
-      icon: <FaCertificate />,
-    },
-  ],
-  adventure: [
-    {
-      title: "Music",
-      imgSrc: "https://picsum.photos/seed/music/250/200",
-      route: "/music",
-      icon: <FaMusic />,
-    },
-    {
-      title: "Projects",
-      imgSrc: "https://picsum.photos/seed/innovation/250/200",
-      route: "/projects",
-      icon: <FaProjectDiagram />,
-    },
-    {
-      title: "Reading",
-      imgSrc: "https://picsum.photos/seed/books/250/200",
-      route: "/reading",
-      icon: <FaBook />,
-    },
-    {
-      title: "Contact Me",
-      imgSrc: "https://picsum.photos/seed/connect/250/200",
-      route: "/contact-me",
-      icon: <FaEnvelope />,
-    },
-    {
-      title: "Certifications",
-      imgSrc: "https://picsum.photos/seed/medal/250/200",
-      route: "/certifications",
-      icon: <FaCertificate />,
     },
   ],
 };
 
 // Komponen utama TopPicksRow dengan TypeScript React Functional Component
-const TopPicksRow: React.FC<TopPicksRowProps> = ({ profile }) => {
+const LatestWorks: React.FC<LatestWorksProps> = ({ profile }) => {
   // Gunakan hook useNavigate untuk perpindahan halaman
   const navigate = useNavigate();
 
   // Ambil konfigurasi top picks sesuai dengan profil yang diberikan
-  const topPicks = topPicksConfig[profile];
+  const latestWorksData = latestWorksConfig[profile];
 
   return (
     <div className="top-picks-row">
       {/* Judul dinamis berdasarkan profil */}
-      <h2 className="row-title">Today's Top Picks for {profile}</h2>
+      <h2 className="row-title">Latest Works</h2>
       <div className="card-row">
         {/* Mapping setiap item top picks menjadi kartu yang dapat diklik */}
-        {topPicks.map((pick, index) => (
+        {latestWorksData.map((pick, index) => (
           <div
             key={index}
             className="pick-card"
@@ -208,4 +144,4 @@ const TopPicksRow: React.FC<TopPicksRowProps> = ({ profile }) => {
   );
 };
 
-export default TopPicksRow;
+export default LatestWorks;

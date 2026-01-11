@@ -5,12 +5,13 @@ import "./ProfilePage.css";
 import ProfileBanner from "./ProfileBanner";
 import TopPicksRow from "./TopPicksRow";
 import ContinueWatching from "./ContinueWatching";
+import LatestWorks from "./LatestWorks";
 
 /* --------------------------------------------------------------- */
 /*  Type that lists all valid profile identifiers.                 */
 /*  Helps TypeScript ensure we only use one of these strings.      */
 /* --------------------------------------------------------------- */
-type ProfileType = "creative" | "brandmarketing" | "stalker" | "adventure";
+type ProfileType = "creative" | "brandmarketing";
 
 const ProfilePage: React.FC = () => {
   /* ----------------------------------------------------------- */
@@ -79,8 +80,7 @@ const ProfilePage: React.FC = () => {
       {/*   • ContinueWatching – shows content the user was     */}
       {/*     previously watching, also filtered by profile.    */}
       {/* ------------------------------------------------------- */}
-      {/* <TopPicksRow profile={profile} />
-      <ContinueWatching profile={profile} /> */}
+      <LatestWorks profile={profile} />
     </>
   );
 };
