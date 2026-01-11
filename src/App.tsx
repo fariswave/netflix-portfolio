@@ -14,6 +14,7 @@ import Music from './pages/Music';
 import Reading from './pages/Reading';
 import Blogs from './pages/Blogs';
 import Certifications from './pages/Certifications';
+import ProjectDetail from './pages/ProjectDetail';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
       <Route path="/" element={<NetflixTitle />} />
       <Route path="/browse" element={<Browse />} />
       <Route path="/profile/:profileName" element={<Layout><ProfilePage /></Layout>} />
+      <Route path="/project/:projectId" element={<Layout><ProjectDetail /></Layout>} />
       <Route path="/work-permit" element={<Layout><WorkPermit /></Layout>} />
       <Route path="/work-experience" element={<Layout><WorkExperience /></Layout>} />
       <Route path="/recommendations" element={<Layout><Recommendations /></Layout>} />

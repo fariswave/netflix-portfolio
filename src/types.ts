@@ -27,10 +27,23 @@ export interface TimelineItem {
 }
 
 export interface Project {
+  id: string;
   title: string;
   description: string;
   techUsed: string;
   image: { url: string };
+  category: string;
+  roles: string[];
+  details?: {
+    year: string;
+    duration: string;
+    rating: string;
+    starring: string;
+    createdBy: string;
+    genre: string;
+    gallery: string[];
+    videos: string[];
+  };
 }
 
 export interface Certification {
