@@ -29,11 +29,14 @@ export interface TimelineItem {
 export interface Project {
   id: string;
   title: string;
-  description: string;
+  description: {
+    [key: string]: string;
+  };
   techUsed: string;
   image: { url: string };
   category: string;
   roles: string[];
+  date: string;
   details?: {
     year: string;
     duration: string;
