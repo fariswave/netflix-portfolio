@@ -1,13 +1,19 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { DATA } from "../data";
-import "./ProjectDetail.css";
+import React from 'react';
+import { useParams, useLocation } from 'react-router-dom';
+import { DATA } from '../data';
+import './ProjectDetail.css';
 
 const ProjectDetail: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
+  const location = useLocation();
   const project = DATA.projects.find((p) => p.id === projectId);
+  
+  // Use the role passed via state, or fallback to 'brandmarketing'
+  const role = (location.state as { role?: string })?.role || 'brandmarketing';
 
-  if (!project) return <div>Project not found</div>;
+  if (!project) return <div style={{ color: 'white', padding: '100px' }}>Project not found</div>;
+
+  const projectDescription = project.description[role] || project.description['brandmarketing'];
 
   return (
     <div className="project-detail">
@@ -33,7 +39,7 @@ const ProjectDetail: React.FC = () => {
         </div>
 
         <div className="overview-section">
-          <p className="description">{project.description}</p>
+          <p className="description">{projectDescription}</p>
           <div className="info-grid">
             <div>
               <span className="label">Starring:</span>{" "}
@@ -51,7 +57,7 @@ const ProjectDetail: React.FC = () => {
 
         {project.details?.gallery && project.details.gallery.length > 0 && (
           <div className="gallery-section">
-            <h3>Gallery</h3>
+            <h3 style={{ margin: '40px 0 20px' }}>Gallery</h3>
             <div className="gallery-grid">
               {project.details.gallery.map((img, i) => (
                 <img key={i} src={img} alt={`Gallery ${i}`} />
