@@ -1,65 +1,88 @@
-import React from 'react';
-import { useLocation, useParams, useNavigate } from 'react-router-dom';
-import './ProfilePage.css';
+import React from "react";
+import { useLocation, useParams } from "react-router-dom";
+import "./ProfilePage.css";
 
-import ProfileBanner from './ProfileBanner';
-import { DATA } from '../data';
+import ProfileBanner from "./ProfileBanner";
+import TopPicksRow from "./TopPicksRow";
+import ContinueWatching from "./ContinueWatching";
+import LatestWorks from "./LatestWorks";
 
-type ProfileType = 'recruiter' | 'developer' | 'stalker' | 'adventure';
+/* --------------------------------------------------------------- */
+/*  Type that lists all valid profile identifiers.                 */
+/*  Helps TypeScript ensure we only use one of these strings.      */
+/* --------------------------------------------------------------- */
+type ProfileType = "creative" | "brandmarketing";
 
 const ProfilePage: React.FC = () => {
+  /* ----------------------------------------------------------- */
+  /*  1️⃣  Get the navigation state that was passed from Browse.   */
+  /*      `useLocation()` returns an object like:                */
+  /*      { pathname: '/profile/recruiter', state: { … } }       */
+  /* ----------------------------------------------------------- */
   const location = useLocation();
-  const navigate = useNavigate();
-  const backgroundGif = location.state?.backgroundGif || "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif"; 
+
+  /* ----------------------------------------------------------- */
+  /*  2️⃣  Extract the background GIF URL from that state.        */
+  /*      If the previous page didn’t provide one, fall back to */
+  /*      a default GIF so the page always has a background.    */
+  /* ----------------------------------------------------------- */
+  const backgroundGif =
+    location.state?.backgroundGif ||
+    "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif"; // Default GIF
+
+  /* ----------------------------------------------------------- */
+  /*  3️⃣  Baca segmen dinamis dari URL (misalnya /profile/:profileName) */
+  /*      - Route didefinisikan dengan placeholder `:profileName`   */
+  /*        yang akan berisi nama profil yang dipilih (recruiter,   */
+  /*        developer, dst.).                                      */
+  /*      - `useParams()` (hook react‑router) mengembalikan sebuah  */
+  /*        objek berisi semua parameter yang ada di URL.          */
+  /*      - Dengan destructuring `{ profileName }` kita dapat      */
+  /*        nilai aktual dari URL, misalnya "recruiter".           */
+  /*      - Nilai ini selanjutnya dipakai untuk menyesuaikan      */
+  /*        konten halaman profil.                                 */
+  /* ----------------------------------------------------------- */
   const { profileName } = useParams<{ profileName: string }>();
 
-  const profileKey = ['recruiter', 'developer', 'stalker', 'adventure'].includes(profileName!)
+  /* ----------------------------------------------------------- */
+  /*  4️⃣  Validate the `profileName` against the list of allowed  */
+  /*      profiles. If the URL contains an unknown name we       */
+  /*      default to "recruiter". This prevents TypeScript errors */
+  /*      and ensures the rest of the UI receives a valid value. */
+  /* ----------------------------------------------------------- */
+  const profile = [
+    "creative",
+    "brandmarketing",
+    "stalker",
+    "adventure",
+  ].includes(profileName!)
     ? (profileName as ProfileType)
-    : 'recruiter';
-
-  const profileConfig = DATA.profiles[profileKey];
-  // Filter projects by role first
-  const roleProjects = DATA.projects.filter(p => p.roles.includes(profileConfig.role));
-
+    : "brandmarketing";
   return (
-    <div className="profile-page-container">
+    <>
+      {/* ------------------------------------------------------- */}
+      {/*  Page container with the chosen background GIF as CSS   */}
+      {/*  background-image. The inline style lets us use the URL */}
+      {/*  from `backgroundGif` directly.                         */}
+      {/* ------------------------------------------------------- */}
       <div
-        className="profile-hero"
+        className="profile-page"
         style={{ backgroundImage: `url(${backgroundGif})` }}
       >
-        <ProfileBanner />
+        {/* Header/banner for the profile (e.g., name, avatar) */}
+        <ProfileBanner profileName={profile} />
       </div>
-
-      <div className="sections-container">
-        {profileConfig.categories.map(cat => {
-          // Filter projects by category, or show all for 'Latest Work'
-          const catProjects = roleProjects.filter(p => p.category === cat || cat === 'Latest Work');
-          if (catProjects.length === 0) return null;
-
-          return (
-            <div key={cat} className="project-section">
-              <h2 className="section-title">{cat}</h2>
-              <div className="project-row">
-                {catProjects.map(project => (
-                  <div 
-                    key={project.id} 
-                    className="project-card"
-                    onClick={() => navigate(`/project/${project.id}`)}
-                  >
-                    <img src={project.image.url} alt={project.title} />
-                    <div className="project-card-info">
-                      <h3>{project.title}</h3>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+      {/* ------------------------------------------------------- */}
+      {/*  Below the banner we render two sections that depend on */}
+      {/*  the selected profile:                               */}
+      {/*   • TopPicksRow – shows recommended items for that    */}
+      {/*     profile type.                                      */}
+      {/*   • ContinueWatching – shows content the user was     */}
+      {/*     previously watching, also filtered by profile.    */}
+      {/* ------------------------------------------------------- */}
+      <LatestWorks profile={profile} />
+    </>
   );
 };
 
 export default ProfilePage;
-

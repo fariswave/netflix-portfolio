@@ -1,17 +1,20 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { DATA } from '../data';
-import './ProjectDetail.css';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { DATA } from "../data";
+import "./ProjectDetail.css";
 
 const ProjectDetail: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
-  const project = DATA.projects.find(p => p.id === projectId);
+  const project = DATA.projects.find((p) => p.id === projectId);
 
   if (!project) return <div>Project not found</div>;
 
   return (
     <div className="project-detail">
-      <div className="hero-section" style={{ backgroundImage: `url(${project.image.url})` }}>
+      <div
+        className="hero-section"
+        style={{ backgroundImage: `url(${project.image.url})` }}
+      >
         <div className="hero-overlay">
           <h1>{project.title}</h1>
           <div className="meta">
@@ -33,10 +36,12 @@ const ProjectDetail: React.FC = () => {
           <p className="description">{project.description}</p>
           <div className="info-grid">
             <div>
-              <span className="label">Starring:</span> {project.details?.starring}
+              <span className="label">Starring:</span>{" "}
+              {project.details?.starring}
             </div>
             <div>
-              <span className="label">Created by:</span> {project.details?.createdBy}
+              <span className="label">Created by:</span>{" "}
+              {project.details?.createdBy}
             </div>
             <div>
               <span className="label">Genre:</span> {project.details?.genre}
