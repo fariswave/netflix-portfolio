@@ -30,7 +30,7 @@ import {
   SiArgo,
 } from "react-icons/si";
 import { Project } from "../types";
-import { getProjects } from "../queries/getProjects";
+import { DATA } from "../data";
 import { GrDeploy, GrKubernetes } from "react-icons/gr";
 
 const techIcons: { [key: string]: JSX.Element } = {
@@ -87,18 +87,7 @@ const techIcons: { [key: string]: JSX.Element } = {
 };
 
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    async function fetchProjects() {
-      const data = await getProjects();
-      setProjects(data);
-    }
-
-    fetchProjects();
-  }, []);
-
-  if (projects.length === 0) return <div>Loading...</div>;
+  const projects = DATA.projects;
 
   return (
     <div className="projects-container">
