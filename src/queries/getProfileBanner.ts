@@ -53,9 +53,9 @@ const BANNERS: Record<string, ProfileBanner> = {
 /*  Parameter `profileName` menentukan banner mana yang dikembalikan.*/
 /* --------------------------------------------------------------- */
 export async function getProfileBanner(
-  profileName: string
+  profileName: string,
 ): Promise<ProfileBanner> {
   // Jika nama tidak dikenal, fallback ke banner default (misal recruiter)
-  const banner = BANNERS[profileName] ?? BANNERS["recruiter"];
+  const banner = BANNERS[profileName] ?? BANNERS["creative"];
   return banner;
 }
