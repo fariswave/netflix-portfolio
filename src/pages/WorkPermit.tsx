@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./WorkPermit.css";
 import { DATA } from "../data";
-import { WorkPermit as IWorkPermit } from "../types";
 const WorkPermit: React.FC = () => {
   const workPermitData = DATA.workPermit;
 

@@ -52,13 +52,6 @@ const ProjectDetail: React.FC = () => {
 
       {/* Container utama untuk konten */}
       <div className="content-container">
-        {/* Tab navigation (saat ini hanya OVERVIEW yang aktif) */}
-        <div className="tabs">
-          <button className="active">OVERVIEW</button>
-          <button>GALLERY</button>
-          <button>DETAILS</button>
-        </div>
-
         {/* Bagian overview proyek */}
         <div className="overview-section">
           {/* Deskripsi proyek berdasarkan role yang dipilih */}

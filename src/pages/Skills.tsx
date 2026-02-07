@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Skills.css";
 import { DATA } from "../data";
 
@@ -26,7 +26,6 @@ import {
   SiRabbitmq,
   SiImessage,
 } from "react-icons/si";
-import { Skill } from "../types";
 
 const iconMap: { [key: string]: JSX.Element } = {
   SiRubyonrails: <SiRubyonrails />,

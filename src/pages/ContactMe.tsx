@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ContactMe.css";
 import profilePic from "../images/sumanth.jpeg";
 import { FaEnvelope, FaPhoneAlt, FaCoffee, FaLinkedin } from "react-icons/fa";
-import { ContactMe as IContactMe } from "../types";
 import { DATA } from "../data";
 
 const ContactMe: React.FC = () => {

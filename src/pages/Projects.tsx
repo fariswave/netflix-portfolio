@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Projects.css";
 import {
   FaReact,
@@ -29,7 +29,6 @@ import {
   SiTerraform,
   SiArgo,
 } from "react-icons/si";
-import { Project } from "../types";
 import { DATA } from "../data";
 import { GrDeploy, GrKubernetes } from "react-icons/gr";
 
