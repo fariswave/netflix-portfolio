@@ -62,6 +62,19 @@
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+    align-items: flex-end;
+    padding-bottom: 10px;
+  }
+  
+  .pick-label {
+    font-size: 1rem;
+  }
+}
+
 .pick-label {
   color: #fff;
   font-size: 1.2rem;
