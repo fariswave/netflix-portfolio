@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { DATA } from "../data";
 import "./ProjectDetail.css";
 
 // Functional component untuk halaman detail proyek
 const ProjectDetail: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   // Mendapatkan parameter projectId dari URL (misal: /projects/123)
   const { projectId } = useParams<{ projectId: string }>();
 

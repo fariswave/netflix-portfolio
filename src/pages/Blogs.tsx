@@ -4,25 +4,25 @@ import { FaMedium, FaDev } from 'react-icons/fa';
 
 const blogs = [
   {
-    title: "Make Your Rails Console Look Better",
+    title: "Brand Storytelling in the Digital Age",
     platform: "Medium",
     icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/make-your-rails-console-look-better-510988d40566",
-    description: "Learn tips to customize your Rails console for a better experience.",
+    link: "https://medium.com/@zahrapratiwi",
+    description: "Exploring the evolution of brand narratives in a multi-platform world.",
   },
   {
-    title: "Docker Fundas - My Version",
+    title: "User-Centric Design Principles",
     platform: "Medium",
     icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/docker-fundas-my-version-7b9262bd90d4",
-    description: "An introductory guide to Docker fundamentals from my perspective.",
+    link: "https://medium.com/@zahrapratiwi",
+    description: "How to place empathy at the core of your creative process.",
   },
   {
-    title: "Grape Gem in Ruby on Rails: Handling User Model and API Endpoint",
+    title: "Modern Marketing Frameworks",
     platform: "Dev.to",
     icon: <FaDev />,
-    link: "https://dev.to/samalasumanth0262/grape-gem-in-ruby-on-rails-handling-user-model-and-api-endpoint-g6d",
-    description: "A guide to using the Grape gem for API development in Ruby on Rails.",
+    link: "https://dev.to/zahrapratiwi",
+    description: "A deep dive into agile marketing strategies for growth.",
   },
 ];
 
@@ -30,7 +30,7 @@ const Blogs: React.FC = () => {
   return (
     <div className="blogs-container">
       <h2 className="blogs-title">✍️ My Blog Posts</h2>
-      <p className="blogs-intro">A collection of my thoughts and tutorials on software development.</p>
+      <p className="blogs-intro">A collection of my thoughts and tutorials on brand marketing and creative strategy.</p>
       <div className="blogs-grid">
         {blogs.map((blog, index) => (
           <a href={blog.link} key={index} target="_blank" rel="noopener noreferrer" className="blog-card" style={{ '--delay': `${index * 0.2}s` } as React.CSSProperties}>

@@ -1,24 +1,24 @@
 import React from 'react';
 import './Recommendations.css';
-import chrisProfilePic from '../images/chris.jpg'; // Adjust the path based on your directory structure
+import chrisProfilePic from '../images/chris.jpg';
 
 const Recommendations: React.FC = () => {
   return (
     <div className='timeline-container'>
       <div className="recommendation-card">
         <div className="recommendation-header">
-          <img src={chrisProfilePic} alt="Chris Smith" className="profile-pic" />
+          <img src={chrisProfilePic} alt="Professional Reference" className="profile-pic" />
           <div>
-            <h3>Chris Smith</h3>
-            <p>Head of Kajima Community</p>
-            <p className="date">October 24, 2024</p>
+            <h3>Professional Reference</h3>
+            <p>Senior Lead at Tech Co</p>
+            <p className="date">2024</p>
           </div>
         </div>
         <div className="recommendation-body">
-          <p>✨ "It is with great pleasure that I write this reference for Sumanth, who worked for us as a software developer at Kajima from June 2023. Unfortunately, due to a change in the company’s structure, we have made the difficult decision to make their position redundant. This in no way reflects on their performance, which was consistently excellent.</p>
-          <p>During their time with us, Sumanth demonstrated strong technical expertise, a passion for problem-solving, a willingness to learn, and a collaborative spirit that greatly contributed to our team’s success. They played a pivotal role in developing and maintaining key features of our software <strong>BookingsPlus</strong> and <strong>NHS Open Space</strong>, consistently delivering high-quality code while meeting project deadlines. Their ability to quickly adapt to new technologies and their proactive approach to finding innovative solutions set them apart."</p>
-          <p>💼 "Sumanth also showed exceptional teamwork and communication skills, effectively collaborating with cross-functional teams, including product managers, designers, and QA. Their professionalism, positive attitude, and dedication to their work made them an asset to the team."</p>
-          <p>🌟 "I have no doubt that Sumanth will be a valuable addition to any organization, and I wholeheartedly recommend them for any future opportunities."</p>
+          <p>✨ "It is with great pleasure that I write this reference for Zahra, who has consistently demonstrated exceptional technical expertise and a passion for building high-quality products. Her ability to translate complex strategies into resonant experiences is truly impressive.</p>
+          <p>During our time working together, Zahra showed a collaborative spirit that greatly contributed to our team’s success. She played a pivotal role in developing and maintaining key features, consistently delivering high-quality results while meeting project deadlines. Her proactive approach to finding innovative solutions truly sets her apart."</p>
+          <p>💼 "Zahra also showed exceptional teamwork and communication skills, effectively collaborating with cross-functional teams, including product managers, designers, and developers. Her professionalism, positive attitude, and dedication to her work make her an asset to any team."</p>
+          <p>🌟 "I have no doubt that Zahra will be a valuable addition to any organization, and I wholeheartedly recommend her for any future opportunities."</p>
         </div>
       </div>
     </div>
