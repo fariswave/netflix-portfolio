@@ -1,13 +1,6 @@
-## 🌟 Sumanth Samala's Netflix inspired Portfolio 🌟 - https://sumanthsamala.com/
+## 🌟 Zahra Sausan Pratiwi's Netflix inspired Portfolio 🌟 - https://zahrasausan.com/
 
-Welcome to my personal portfolio project! 🚀 This website showcases my work, skills, and experiences in web development. It's designed to be lightweight, customizable, and professional while maintaining an approachable style.
-
-Explore specific subdomains tailored to different tech stacks:
-
-- 🌟 [java.sumanthsamala.com](https://java.sumanthsamala.com/) for Java Spring Boot-related work.
-- 🌟 [node.sumanthsamala.com](https://node.sumanthsamala.com/) for Node.js and backend development.
-- 🌟 [frontend.sumanthsamala.com](https://frontend.sumanthsamala.com/) for frontend development expertise.
-- 🌟 [ror.sumanthsamala.com](https://ror.sumanthsamala.com/) for Ruby on Rails projects.
+Welcome to my personal portfolio project! 🚀 This website showcases my work, skills, and experiences. It's designed to be lightweight, customizable, and professional while maintaining an approachable style.
 
 ![Screenshot from 2024-12-08 19-19-06](https://github.com/user-attachments/assets/f8220485-16ec-48cf-8cb2-7853540c5724)
 
@@ -15,11 +8,11 @@ Explore specific subdomains tailored to different tech stacks:
 
 ## ✨ Features
 
-- 🌍 **Dynamic Content**: Powered by [DatoCMS](https://www.datocms.com) for easy content management.
+- 🌍 **Static Content**: Powered by a customizable `src/data.ts` file for easy management.
 - ⚡ **Fast & Responsive**: Built with modern web technologies for seamless performance.
 - 🎨 **Customizable**: Modular and easy to adapt to your own needs.
 - 📈 **Professional Yet Personal**: Highlights projects, skills, and achievements.
-- 🎨 It can support various por
+- 🎨 Supports multiple viewer profiles (Recruiter, Developer, etc.)
 
 ---
 
@@ -30,7 +23,6 @@ This portfolio is built with love and:
 - ⚛️ **React** (Frontend)
 - ☁️ **AWS S3 & CloudFront** (Hosting and CDN)
 - 🖌️ **Tailwind CSS** (Styling)
-- 🛡️ **DatoCMS** (Content Management)
 - 🧩 **Other Cool Tools**: GitHub Actions
 
 ---
@@ -63,7 +55,7 @@ npm cache clean --force
 npm install
 ```
 
-3. **Configure Environment Variables**: Create a `.env` file and set up the necessary API keys and configurations.
+3. **Configure Environment Variables**: Create a `.env` file if needed for any external integrations (currently purely static).
 4. **Run the Project**: Start the development server.
 
 ```bash
@@ -102,17 +94,16 @@ Your feedback is valuable and helps make this project better for everyone. Thank
 
 ## 🌟 Acknowledgments
 
-- Thanks to [DatoCMS](https://www.datocms.com) for powering the dynamic content.
-- Inspired by countless developers in the open-source community. 💻
+- Inspired by the Netflix UI and the open-source community. 💻
 - Special shoutout to all contributors—you rock! 🤘
 
 ---
 
 ## 📧 Contact Me
 
-- 💼 [Portfolio Website](https://sumanthsamala.com)
-- 📧 Email: [chintusamala96@gmail.com](mailto:chintusamala96@gmail.com)
-- 🔗 [LinkedIn](https://uk.linkedin.com/in/sumanth-samala-82431161)
+- 💼 [Portfolio Website](https://zahrasausan.com)
+- 📧 Email: [zahrasausan92@gmail.com](mailto:zahrasausan92@gmail.com)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/zahrasp/)
 
 ---
 
